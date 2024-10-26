@@ -180,7 +180,7 @@ pub const Device = extern struct {
 
     pub fn getILsWithVersion(device: Device, a: Allocator) ![]const NameVersion {
         var ils_size: usize = undefined;
-        switch (c.clGetDeviceInfo(device.id, c.CL_DEVICE_ILS_WITH_VERSION, 0, null, &ils_size)) {
+        switch (c.clGetDeviceInfo(device.id, c.CL_DEVICE_ILS_WITH_VERSION_KHR, 0, null, &ils_size)) {
             c.CL_SUCCESS => {},
             c.CL_INVALID_DEVICE => unreachable,
             c.CL_INVALID_VALUE => unreachable,
